@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="d-flex justify-content-center">
+    <table class="table table-striped w-75">
+        <tr>
+            <th>Название</th>
+            <th>Юзер</th>
+        </tr>
+    {% for object in object_list %}
+        
+        {% if object.user == user or user.is_superuser  %}
+        <tr>
+            <th>{{ object.name }} </th>
+            <th>{{ object.user }} </th>
+        </tr>
+        {% endif %}
+
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}
